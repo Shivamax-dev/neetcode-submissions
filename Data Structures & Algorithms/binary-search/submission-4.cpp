@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int n = nums.size();
+        int low = 0, high = n-1;
+
+        while(low <= high){
+            int guess = (low + high)/2;   //guess == mid
+            if(nums[guess] == target){
+                return guess;
+            }
+            if(nums[guess] < target){ //less
+                low = guess + 1;
+            }
+            else{   //(nums[guess] > target)
+                high = guess - 1;
+            }
+            
+        }
+        return -1;
+    }
+};
